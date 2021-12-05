@@ -1,11 +1,17 @@
-import '../styles/globals.css'
+import { UserProvider } from "@auth0/nextjs-auth0";
+import { Navbar } from "components";
+import "../styles/globals.css";
+
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="bg-yellow-600 w-full p-10 min-h-screen">
+    <UserProvider>
+      <div className="bg-yellow-600 w-full p-10 min-h-screen">
         <div className="max-w-2xl mx-auto">
-            <Component {...pageProps} />
+          <Navbar />
+          <Component {...pageProps} />
         </div>
-    </div>
+      </div>
+    </UserProvider>
   );
 }
-export default MyApp
+export default MyApp;
